@@ -1,0 +1,42 @@
+In Circle.java
+
+In the Scale(double Factor) method
+The line: radius = radius + factor; does not scale the radius by the factor correctly
+The test case in Circle1Test.java "simpleScalingPositive()" found this error
+I Changed the line from:
+radius = radius + factor;
+to
+radius = radius * factor;
+So it can scale the radius correctly
+
+In moveBY(double xOffset, double yOffset)
+The line: center.y = center.y + xOffset; does not change the y coordinate correctly
+The test case in Circle1Test.java "simpleMove()" found this error
+I changed the line from:
+center.y = center.y + xOffset;
+to
+center.y = center.y + yOffset;
+so it can change the y coordinate correctly
+
+In Circle1.java
+In intersects(Circle other)
+The code:
+   if (Math.abs(center.x - other.center.x) < radius &&
+       Math.abs(center.y - other.center.y) < radius)
+does not have the correct alogrithm to calculate if the circles are intersecting eachother.
+I cange the code from:
+   if (Math.abs(center.x - other.center.x) < radius &&
+       Math.abs(center.y - other.center.y) < radius)
+to
+if (Math.hypot(center.x - other.center.x, center.y - other.center.y) <= (radius + other.radius))
+so it can correctly calculate if the circles are intersecting.
+
+In Circle2.java
+
+In Circle2(double x, double y, double radius)
+The line: super(y,x,radius); does not correctly create the circle since the parameter y is going into the circle custuctor x and vise versa
+I changed the line from:
+super(y,x,radius);
+to
+super(x,y,radius);
+so it can correctly constuct the circle
